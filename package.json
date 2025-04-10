@@ -1,6 +1,10 @@
 {
-  "version": "0.0.0",
-  "keywords": [],
+  "version": "1.0.0",
+  "keywords": [
+    "Strapi",
+    "plugin",
+    "Dashboard"
+  ],
   "type": "commonjs",
   "exports": {
     "./package.json": "./package.json",
@@ -68,5 +72,20 @@
   "name": "strapi-plugin-dashboard-builder",
   "description": "Customize your Strapi admin dashboard",
   "license": "MIT",
-  "author": "yasudacloud <hello@yasuda.cloud>"
+  "author": {
+    "name": "yasudacloud",
+    "url": "https://github.com/yasudacloud/strapi-plugin-dashboard-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yasudacloud/strapi-plugin-dashboard-builder"
+  },
+  "maintainers": [
+    {
+      "name": "yasudacloud"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/yasudacloud/strapi-plugin-dashboard-builder/issues"
+  }
 }
