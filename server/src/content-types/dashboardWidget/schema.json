@@ -1,0 +1,35 @@
+{
+  "info": {
+    "singularName": "widgets",
+    "pluralName": "widgets",
+    "collectionName": "widgets",
+    "displayName": "Dashboard Widget",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": false
+    },
+    "content-type-builder": {
+      "visible": false
+    }
+  },
+  "attributes": {
+    "widget_type": {
+      "type": "string",
+      "configurable": false,
+      "required": true
+    },
+    "metafields": {
+      "type": "json",
+      "required": true
+    },
+    "row_index": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
