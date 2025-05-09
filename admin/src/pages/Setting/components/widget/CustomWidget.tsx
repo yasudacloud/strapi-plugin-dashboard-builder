@@ -15,16 +15,18 @@ const ErrorText = styled(Typography)`
   color: #ff3333;
 `;
 
+const useInjectZone = () => {
+  const getPlugin = useStrapiApp('useInjectionZone', (state) => state.getPlugin);
+  const contentManagerPlugin = getPlugin('dashboard-builder');
+  return contentManagerPlugin.getInjectedComponents('dashboard', 'customWidgets');
+};
+
 const CustomWidget = (props: WidgetProps) => {
   const { row_index, uuid } = props;
   const { data } = useWidget();
   const dashboardWidget = data[row_index].children.find((widget) => widget.uuid === uuid);
   const { name } = dashboardWidget?.metafields as CustomMetaFields;
-
-  const getPlugin = useStrapiApp('useInjectionZone', (state) => state.getPlugin);
-  const contentManagerPlugin = getPlugin('dashboard-builder');
-  const components = contentManagerPlugin.getInjectedComponents('dashboard', name);
-
+  const components = useInjectZone().filter((component) => component.name === name);
   if (components.length === 0) {
     return (
       <WidgetContainer widgetType={WidgetType.customWidget}>

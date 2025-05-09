@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { DashboardWidgetGroup } from '../../types';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
-import { Cog } from '@strapi/icons';
 
 const Layout = styled.div`
   max-width: 1400px;
@@ -23,25 +22,15 @@ const WidgetWrap = styled(Box)`
   }
 `;
 
-const useInjectZone = () => {
-  const getPlugin = useStrapiApp('useInjectionZone', (state) => state.getPlugin);
-  const contentManagerPlugin = getPlugin('dashboard-builder');
-  return contentManagerPlugin.getInjectedComponents('dashboard', 'customWidgets');
-};
-
 const DashboardView = () => {
   const { data, setData, setWidgetConfig, widgetConfig } = useWidget();
   const client = useFetchClient();
-  const components = useInjectZone();
   useEffect(() => {
     setWidgetConfig({ height: '250px' });
-
     client.get('/dashboard-builder/widgets').then((response) => {
       const { data } = response;
       if (Array.isArray(data)) {
-        const maxRowIndex = data.reduce((l, r) =>
-          l.row_index > r.row_index ? l.row_index : r.row_index
-        );
+        const maxRowIndex = Math.max(...data.map(item => item.row_index));
         const groups: DashboardWidgetGroup[] = [];
         for (let i = 0; i < maxRowIndex + 1; i++) {
           groups.push({ children: [] });

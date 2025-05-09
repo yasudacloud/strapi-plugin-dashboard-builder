@@ -77,37 +77,31 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
         name: 'Math',
         A: 120,
         B: 110,
-        fullMark: 150,
       },
       {
         name: 'Chinese',
         A: 98,
         B: 130,
-        fullMark: 150,
       },
       {
         name: 'English',
         A: 86,
         B: 130,
-        fullMark: 150,
       },
       {
         name: 'Geography',
         A: 99,
         B: 100,
-        fullMark: 150,
       },
       {
         name: 'Physics',
         A: 85,
         B: 90,
-        fullMark: 150,
       },
       {
         name: 'History',
         A: 65,
         B: 85,
-        fullMark: 150,
       },
     ];
     ctx.send(JSON.stringify(data));

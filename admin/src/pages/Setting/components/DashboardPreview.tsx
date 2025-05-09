@@ -95,9 +95,7 @@ const DashboardPreview = () => {
     client.get('/dashboard-builder/widgets').then((response) => {
       const { data } = response;
       if (Array.isArray(data) && data.length > 0) {
-        const maxRowIndex = data.reduce((l, r) =>
-          l.row_index > r.row_index ? l.row_index : r.row_index
-        );
+        const maxRowIndex = Math.max(...data.map((item) => item.row_index));
         const groups: DashboardWidgetGroup[] = [];
         for (let i = 0; i < maxRowIndex + 1; i++) {
           groups.push({ children: [] });
