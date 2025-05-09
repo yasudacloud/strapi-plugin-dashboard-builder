@@ -1,5 +1,5 @@
 import { Flex, Typography } from '@strapi/design-system';
-import { CheckCircleEmpty } from '@strapi/icons';
+import { CheckCircle } from '@strapi/icons';
 import React from 'react';
 import styled from "styled-components";
 
@@ -18,7 +18,7 @@ const Center = styled(Flex)`
 const WidgetTitle = (props: Props) => {
   return (
     <Center>
-      <CheckCircleEmpty width={24} height={24} />
+      <CheckCircle width={24} height={24} />
       &nbsp;
       <Typography variant={'beta'}>{props.title}</Typography>
     </Center>
